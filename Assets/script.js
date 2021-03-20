@@ -1,14 +1,12 @@
-$(document).ready(function() {
-    const startWeek = moment().startOf('month').week();
-    const endWeek = moment().endOf('month').week();
-    
-    
-    let calendar = []
-    for(var week = startWeek; week<endWeek;week++){
-      calendar.push({
-        week:week,
-        days:Array(7).fill(0).map((n, i) => moment().week(week).startOf('week').clone().add(n + i, 'day'))
-      })
-    }
-});
+var $currentDay = $("#currentDay");
+var $timeBlocks = $(".time-block");
+var $calendarArea = $(".calendar");
+var toDoItems = [];
+var currentDate = moment().format("dddd, MMMM Do");
+var currentHour = moment().format("H");
+var $thisBlock = $(this);
+$currentDay.text(currentDate);
+
+// code for saving entries locally
+// code for color-coding the times
 
