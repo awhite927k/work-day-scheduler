@@ -1,11 +1,11 @@
 var $currentDay = $("#currentDay");
 var $timeBlocks = $(".time-block");
 var $calendarArea = $(".calendar");
-var toDoItems = [];
 var currentDate = moment().format("dddd, MMMM Do");
 var currentHour = moment().format("H");
 var $thisBlock = $(this);
 $currentDay.text(currentDate);
+var toDoItem = $(".input");
 
 // code for saving entries locally
 
@@ -26,3 +26,7 @@ function timeColors() {
 $(document).ready(function () {
     timeColors();
 });
+
+var saveItem = $thisBlock.toDoItem; 
+var data = JSON.parse(localStorage.getItem(saveItem));
+localStorage.setItem(saveItem, JSON.stringify(data));
